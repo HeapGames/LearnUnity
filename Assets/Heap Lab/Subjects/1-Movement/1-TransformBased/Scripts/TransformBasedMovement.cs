@@ -14,6 +14,7 @@ public class TransformBasedMovement : MonoBehaviour
     public Transform Target;
     public Vector3 Velocity;
     public float Duration;
+    public float MaxSpeed = 5f;
 
     // Update is called once per frame
     void Update()
@@ -33,7 +34,10 @@ public class TransformBasedMovement : MonoBehaviour
                 transform.position = Vector3.MoveTowards(transform.position, Target.position, Speed * Time.deltaTime);
                 break;
             case 4:
-                transform.position = Vector3.SmoothDamp(transform.position, Target.position, ref Velocity, Duration);
+                transform.position = Vector3.SmoothDamp(transform.position, Target.position, ref Velocity, Duration, MaxSpeed);
+                break;
+            case 5:
+                transform.position = Vector3.Slerp(transform.position, Target.position, Speed * Time.deltaTime);
                 break;
             default:
                 break;
