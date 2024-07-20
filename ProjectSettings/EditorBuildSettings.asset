@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Heap Lab/Subjects/Demo Game/DemoGameScene.unity
+    path: Assets/Heap Lab/Subjects/For Mids/Demo Game/DemoGameScene.unity
     guid: 05e3a253772ab894f8a9c3c3fca09930
   m_configObjects: {}

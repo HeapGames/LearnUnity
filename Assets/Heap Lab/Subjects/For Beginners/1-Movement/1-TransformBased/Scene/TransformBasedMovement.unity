@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 10605283}
   - component: {fileID: 10605288}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: MainObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -155,7 +155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73aeccc9bf7dd1c42963aa2230c44329, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Scenario: 4
+  Scenario: 0
   Direction: {x: 1, y: 0, z: 1}
   Speed: 1
   Target: {fileID: 1821493376}

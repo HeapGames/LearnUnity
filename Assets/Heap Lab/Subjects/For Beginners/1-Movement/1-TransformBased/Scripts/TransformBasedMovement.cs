@@ -5,9 +5,19 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using static UnityEngine.GraphicsBuffer;
 
+public enum TransformScenario
+{
+    AddingPosition,
+    Translate,
+    Lerp,
+    MoveTowards,
+    SmoothDamp,
+    Slerp
+}
+
 public class TransformBasedMovement : MonoBehaviour
 {
-    public int Scenario;
+    public TransformScenario Scenario;
     public Vector3 Direction;
     public float Speed = 1f;
 
@@ -21,22 +31,22 @@ public class TransformBasedMovement : MonoBehaviour
     {
         switch (Scenario)
         {
-            case 0:
+            case TransformScenario.AddingPosition:
                 transform.position = transform.position + Direction * Speed * Time.deltaTime;
                 break;
-            case 1:
+            case TransformScenario.Translate:
                 transform.Translate(Direction * Speed * Time.deltaTime, Space.World);
                 break;
-            case 2:
+            case TransformScenario.Lerp:
                 transform.position = Vector3.Lerp(transform.position, Target.position, Speed * Time.deltaTime);
                 break;
-            case 3:
+            case TransformScenario.MoveTowards:
                 transform.position = Vector3.MoveTowards(transform.position, Target.position, Speed * Time.deltaTime);
                 break;
-            case 4:
+            case TransformScenario.SmoothDamp:
                 transform.position = Vector3.SmoothDamp(transform.position, Target.position, ref Velocity, Duration, MaxSpeed);
                 break;
-            case 5:
+            case TransformScenario.Slerp:
                 transform.position = Vector3.Slerp(transform.position, Target.position, Speed * Time.deltaTime);
                 break;
             default:

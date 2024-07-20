@@ -3,9 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
+public enum RigidbodyScenario
+{
+    AddForce,
+    AddRelativeForce,
+    AddTorque,
+    SetVelocity,
+    SetAngularVelocity,
+    MovePositionAndRotation
+}
+
 public class RigidbodyBasedMovement : MonoBehaviour
 {
-    public int Scenario;
+    public RigidbodyScenario Scenario;
     public Vector3 Direction;
     public float Power = 10f;
     public float Speed = 10f;
@@ -28,22 +38,22 @@ public class RigidbodyBasedMovement : MonoBehaviour
         rb.isKinematic = false;
         switch (Scenario)
         {
-            case 0:
+            case RigidbodyScenario.AddForce:
                 rb.AddForce(Direction * Power);
                 break;
-            case 1:
+            case RigidbodyScenario.AddRelativeForce:
                 rb.AddRelativeForce(Direction * Power);
                 break;
-            case 2:
+            case RigidbodyScenario.AddTorque:
                 rb.AddTorque(Direction * Power); 
                 break;
-            case 3:
+            case RigidbodyScenario.SetVelocity:
                 rb.velocity = Direction * Speed;
                 break;
-            case 4:
+            case RigidbodyScenario.SetAngularVelocity:
                 rb.angularVelocity = Direction * Speed;
                 break;
-            case 5:
+            case RigidbodyScenario.MovePositionAndRotation:
                 rb.isKinematic = true;
                 rb.MovePosition(Vector3.Lerp(transform.position, Target.position, Time.deltaTime * Speed));
                 rb.MoveRotation(Quaternion.Lerp(transform.rotation, Target.rotation, Time.deltaTime * Speed)); 
