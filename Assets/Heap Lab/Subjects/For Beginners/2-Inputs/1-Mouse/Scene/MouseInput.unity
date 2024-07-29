@@ -665,6 +665,7 @@ MonoBehaviour:
   ShowWorldPosition: 0
   SnapWorldPositionToGround: 1
   PositionText: {fileID: 843134697}
+  Ground: {fileID: 356253900}
   Canvas: {fileID: 928146757}
 --- !u!4 &1396522190
 Transform:
